@@ -178,8 +178,8 @@ class BaseStoryWriter(Requestable):
         # if the story has author-defined CSS that we want to include, append it to FFF's existing CSS.
         if self.story.extra_css != '':
             if temp_css != '':
-                temp_css += '\n'
-            temp_css += self.story.extra_css
+                temp_css = '\n' + temp_css
+            temp_css = self.story.extra_css + temp_css
             
         if temp_css:
             self.story.setMetadata("output_css",
